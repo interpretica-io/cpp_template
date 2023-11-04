@@ -32,3 +32,4 @@
 *.app
 
 /build
+/cpp_template.sublime-workspace
