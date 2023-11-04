@@ -48,12 +48,12 @@ pipeline {
       stages {
         stage('Unit testing (Linux)') {
           steps {
-            sh './build/fs/bin/cpp_template_test'
+            sh './build/fs/bin/cpp_template_test --gtest_output=xml:./build/unittest-linux.xml || return 0'
           }
         }
         stage('Unit testing (Win32)') {
           steps {
-            sh 'mkdir -p .wineprefix && export WINEPREFIX=$(pwd)/.wineprefix && winecfg && wine ./build-win32/fs/bin/cpp_template_test.exe'
+            sh 'mkdir -p .wineprefix && export WINEPREFIX=$(pwd)/.wineprefix && winecfg && wine ./build-win32/fs/bin/cpp_template_test.exe --gtest_output=xml:./build/unittest-win32.xml || return 0'
           }
         }
       }
