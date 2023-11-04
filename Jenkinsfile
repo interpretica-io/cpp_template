@@ -94,7 +94,7 @@ pipeline {
         stage('Prepare artifacts (versioned)') {
           when {
             expression {
-              BRANCH_NAME == 'master'
+              BRANCH_NAME == 'main'
             }
           }
           steps {
@@ -182,7 +182,7 @@ pipeline {
         stage('Publish artifacts (versioned)') {
           when {
             expression {
-              BRANCH_NAME == 'master'
+              BRANCH_NAME == 'main'
             }
           }
           steps {
